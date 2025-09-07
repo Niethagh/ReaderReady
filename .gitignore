@@ -1,0 +1,25 @@
+# CMake/Qt Creator
+build*/
+**/build*/
+cmake-build*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+*.user
+*.pro.user
+*.qtc*
+*.autosave
+# Компилятор/линковка
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.pdb
+*.exp
+# Логи/прочее
+*.log
+.DS_Store
+Thumbs.db

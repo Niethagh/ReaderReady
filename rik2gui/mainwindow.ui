@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x><y>0</y><width>1000</width><height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>РИК-2 — Работа со смарт-картами</string>
+  </property>
+
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="leftMargin"><number>6</number></property>
+    <property name="topMargin"><number>6</number></property>
+    <property name="rightMargin"><number>6</number></property>
+    <property name="bottomMargin"><number>6</number></property>
+
+    <item>
+     <widget class="QSplitter" name="splitterMain">
+      <property name="orientation"><enum>Qt::Horizontal</enum></property>
+
+      <widget class="QTreeView" name="treeView">
+       <property name="minimumSize">
+        <size><width>300</width><height>0</height></size>
+       </property>
+       <!-- Для QTreeView свойства headerHidden нет — убираем -->
+      </widget>
+
+      <widget class="QTextEdit" name="logEdit">
+       <property name="readOnly"><bool>true</bool></property>
+       <property name="placeholderText"><string>Лог операций…</string></property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect><x>0</x><y>0</y><width>1000</width><height>22</height></rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title"><string>Файл</string></property>
+    <addaction name="actionOpenLibrary"/>
+    <addaction name="actionConnect"/>
+    <addaction name="actionLoadLayout"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuCard">
+    <property name="title"><string>Карта</string></property>
+    <addaction name="actionPowerOn"/>
+    <addaction name="actionPowerOff"/>
+    <addaction name="separator"/>
+    <addaction name="actionReadAll"/>
+    <addaction name="actionMarkup"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title"><string>Справка</string></property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuCard"/>
+   <addaction name="menuHelp"/>
+  </widget>
+
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle"><string>Главная панель</string></property>
+   <property name="toolButtonStyle"><enum>Qt::ToolButtonTextBesideIcon</enum></property>
+   <addaction name="actionOpenLibrary"/>
+   <addaction name="actionConnect"/>
+   <addaction name="actionLoadLayout"/>
+   <addaction name="separator"/>
+   <addaction name="actionPowerOn"/>
+   <addaction name="actionPowerOff"/>
+   <addaction name="separator"/>
+   <addaction name="actionReadAll"/>
+   <addaction name="actionMarkup"/>
+  </widget>
+<widget class="QStatusBar" name="statusbar"/>
+
+  <!-- ДЕЙСТВИЯ -->
+  <action name="actionOpenLibrary">
+   <property name="text"><string>Библиотека…</string></property>
+   <property name="toolTip"><string>Выбрать динамическую библиотеку ридера</string></property>
+  </action>
+  <action name="actionConnect">
+   <property name="text"><string>Подключить</string></property>
+   <property name="toolTip"><string>Подключиться к ридеру (VID/PID)</string></property>
+   <property name="shortcut"><string>Ctrl+K</string></property>
+  </action>
+  <action name="actionLoadLayout">
+   <property name="text"><string>Загрузить разметку…</string></property>
+   <property name="toolTip"><string>Загрузить описание состава файлов «РИК-2» (JSON)</string></property>
+   <property name="shortcut"><string>Ctrl+O</string></property>
+  </action>
+  <action name="actionReadAll">
+   <property name="text"><string>Считать все</string></property>
+   <property name="toolTip"><string>Считать все файлы по загруженной разметке и сохранить на диск</string></property>
+   <property name="shortcut"><string>Ctrl+R</string></property>
+  </action>
+  <action name="actionMarkup">
+   <property name="text"><string>Разметить</string></property>
+   <property name="toolTip"><string>Разметить новую смарт-карту по загруженной разметке</string></property>
+  </action>
+  <action name="actionPowerOn">
+   <property name="text"><string>Подача питания (ATR)</string></property>
+   <property name="toolTip"><string>Подать питание/сбросить карту и показать ATR</string></property>
+   <property name="shortcut"><string>F5</string></property>
+  </action>
+  <action name="actionPowerOff">
+   <property name="text"><string>Снять питание</string></property>
+   <property name="toolTip"><string>Отключить питание карты</string></property>
+  </action>
+  <action name="actionQuit">
+   <property name="text"><string>Выход</string></property>
+   <property name="shortcut"><string>Ctrl+Q</string></property>
+  </action>
+  <action name="actionAbout">
+   <property name="text"><string>О программе…</string></property>
+  </action>
+
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

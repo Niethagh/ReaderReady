@@ -1,0 +1,49 @@
+{
+  "schema": "rik2-layout/1.0",
+  "card": {
+    "name": "РИК-2",
+    "atrExpected": "",
+    "serial": {
+      "apdu": "80 CA 00 00 00"
+    }
+  },
+  "root": {
+    "fid": "3F00",
+    "name": "MF",
+    "type": "df",
+    "children": [
+      {
+        "fid": "7F10",
+        "name": "App DF",
+        "type": "df",
+        "children": [
+          {
+            "fid": "2F01",
+            "name": "Serial EF",
+            "type": "transparent",
+            "size": 8,
+            "saveAs": "serial.bin"
+          },
+          {
+            "fid": "6F02",
+            "name": "Data EF",
+            "type": "transparent",
+            "size": 256,
+            "saveAs": "data.bin",
+            "createApdus": [
+              "80 E0 00 00 0A 62 08 82 01 01 83 02 6F 02"
+            ]
+          },
+          {
+            "fid": "6F03",
+            "name": "Records EF",
+            "type": "linear-fixed",
+            "recordSize": 32,
+            "recordCount": 10,
+            "saveAs": "records.bin"
+          }
+        ]
+      }
+    ]
+  }
+}
